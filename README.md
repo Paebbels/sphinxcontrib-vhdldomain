@@ -2,17 +2,14 @@
 
 This sphinx extension adds a new language domain to Sphinx. It allows the documentation of VHDL source files.
 
-
-
-
 **License: Apache 2.0**
 
 
-# VHDL Domain
+# VHDL Domain - Specification
 
 ## Directives
 
-#### Library
+### Library
 
 ```rst
 .. vhdl:library:: myLibrary
@@ -20,8 +17,8 @@ This sphinx extension adds a new language domain to Sphinx. It allows the docume
    Description text
 ```
 
+<!-- ============================================== -->
 ### Design Unit Directives
-
 
 #### Context
 
@@ -30,6 +27,7 @@ This sphinx extension adds a new language domain to Sphinx. It allows the docume
 
    Description text
 ```
+
 
 #### Entity
 
@@ -71,31 +69,68 @@ This sphinx extension adds a new language domain to Sphinx. It allows the docume
 #### Configuration
 
 ```rst
-.. vhdl:package:: myConfiguration
+.. vhdl:configuration:: myConfiguration
 
    Description text
 ```
 
+<!-- ============================================== -->
+### Interface objects
 
-### Nested Directives
+#### Generic Constant
+```rst
+.. vhdl:genconstant:: myGeneric
+   :type: 
+   :constraint:
+   :init:
 
-#### UseClause
+   Description text
+```
+
+#### Generic Function
+
+#### Generic Procedure
+
+#### Generic Package
+
+#### Generic Type
+
+#### Port Signal
+```rst
+.. vhdl:portsignal:: myPort
+   :type: 
+   :constraint:
+   :init:
+
+   Description text
+```
+
+#### Parameter Constant
 
 ```rst
-.. vhdl:use:: IEEE.std_logic_1164.all
+.. vhdl:paramconstant:: a : integer
 
    Description text
 ```
 
-
-#### ContextClause
+#### Parameter Variable
 
 ```rst
-.. vhdl:ctx:: work.myContext
+.. vhdl:paramvariable:: a : integer
 
    Description text
 ```
 
+#### Parameter Signal
+
+```rst
+.. vhdl:paramsignal:: a : integer
+
+   Description text
+```
+
+<!-- ============================================== -->
+### Types
 
 #### EnumerationType
 
@@ -171,11 +206,19 @@ This sphinx extension adds a new language domain to Sphinx. It allows the docume
    Description text
 ```
 
+#### Protected Type Body
+
+```rst
+.. vhdl:protectedbody:: myProtectedBody
+
+   Description text
+```
+
 #### SubType
 
 
-#### Alias
-
+<!-- ============================================== -->
+### Objects
 
 #### Constant
 
@@ -197,6 +240,16 @@ This sphinx extension adds a new language domain to Sphinx. It allows the docume
    Description text
 ```
 
+#### Variable
+
+```rst
+.. vhdl:variable:: myVariable
+   :type:
+   :init:
+
+   Description text
+```
+
 #### SharedVariable
 
 ```rst
@@ -205,6 +258,10 @@ This sphinx extension adds a new language domain to Sphinx. It allows the docume
 
    Description text
 ```
+
+
+<!-- ============================================== -->
+### Subprograms
 
 #### Function
 
@@ -226,14 +283,6 @@ This sphinx extension adds a new language domain to Sphinx. It allows the docume
    Description text
 ```
 
-#### Parameter
-
-```rst
-.. vhdl:parameter:: a : integer
-
-   Description text
-```
-
 #### Return Type
 
 ```rst
@@ -242,34 +291,123 @@ This sphinx extension adds a new language domain to Sphinx. It allows the docume
    Description text
 ```
 
+<!-- ============================================== -->
+### Misc. Nested Directives
+
+#### UseClause
+
+```rst
+.. vhdl:use:: IEEE.std_logic_1164.all
+
+   Description text
+```
+
+
+#### ContextClause
+
+```rst
+.. vhdl:ctx:: work.myContext
+
+   Description text
+```
+
+#### Alias
+
+```rst
+.. vhdl:alias:: myAlias
+   :reference:
+
+   Description text
+```
+
+#### Process
+
+```rst
+.. vhdl:process:: myProcess
+   :sensitivitylist: 
+
+   Description text
+```
+
+<!-- ============================================== -->
 ## Roles
 
 ### Design Unit Roles
 
 #### Context
 
+```
+:vhdl:context:`myContext`
+```
+
 #### Entity
+
+```
+:vhdl:entity:`myentity`
+```
 
 #### Architecture
 
+```
+:vhdl:arch:`myArchitecture`
+```
+
 #### Package
+
+```
+:vhdl:package:`myPackage`
+```
 
 #### Configuration
 
+```
+:vhdl:config:`myConfiguration`
+```
+
+<!-- ============================================== -->
 ### Other Roles
 
 #### Type
 
+```
+:vhdl:type:`myType`
+```
+
+```
+:vhdl:subtype:`mySubtype`
+```
+
 #### Function
+
+```
+:vhdl:func:`myFunction`
+```
 
 #### Procedure
 
-#### Subprogram
+```
+:vhdl:procedure:`myprocedure`
+```
 
+<!-- ============================================== -->
 ## Indices
+
+#### LibraryIndex
+
+Lists all declared VHDL libraries.
 
 #### EntityIndex
 
+Lists all declared entities.
+
 #### PackageIndex
 
+Lists all declared packages.
+
 #### TypeIndex
+
+Lists all declared types.
+
+#### SubprogramIndex
+
+Lists all declared functions and prcedures.
